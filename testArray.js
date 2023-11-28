@@ -110,11 +110,19 @@ function TestArray7() {
 }
 // 반복 처리
 function TestArray8() {
+    console.log("[ for ]---------------------------");
     //for
     const colors = ["red", "green", "blue"];
     for (let i = 0; i < colors.length; i++) {
         console.log(colors[i]);
     }
+    console.log("[ for 2]---------------------------");
+    // for 2
+    for( let color in colors){
+        console.log(color);
+    }
+
+    console.log("[ forEach ]---------------------------");
     // forEach
     const colors2 = ["red", "green", "blue"];
     colors2.forEach((color) => console.log(color));
@@ -151,7 +159,7 @@ function TestArray8() {
 //TestArray4();
 //TestArray5();
 //TestArray6();
-TestArray7();
+TestArray8();
 
 
 
