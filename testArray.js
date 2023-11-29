@@ -150,8 +150,109 @@ function TestArray8() {
     // findLast() 메서드는 callback이 true를 반환하는 마지막 항목을 반환합니다.
     // findIndex() 메서드는 callback이 true를 반환하는 첫 번째 항목의 인덱스를 반환합니다.
     // findLastIndex() 메서드는 callback이 true를 반환하는 마지막 항목의 인덱스를 반환합니다.
+}
+
+function TestArray9() {
+    let obj = {
+        name : '원숭이',
+        age : 12,
+        favorite: 'banana'
+      }
+      //객체의 key와 value를 열거해준다. 
+      for (let key in obj) {
+        console.log( key + ':' + obj[key]);
+      }
+      console.log('----------------------------');
+      // of는 값을 나열할때 사용한다.
+      // of는 배열에서만 사용된다. ( 오브젝트에 사용하면 error )
+      let arr = Object.values(obj);
+      for (let value of arr) {
+        console.log(value);
+      }
+      console.log('----------------------------');
+
+      let arr2 = Object.keys(obj);
+      for (let key of arr2) {
+        console.log(key);
+      }
+      console.log('----------------------------');
+}
+
+function TestArray10() {
+
+    //1. indexOf : 
+    // 배열에서 특정 데이터를 찾고, 검색된 배열의 '첫번째'로 나타나는 위치 index를 리턴한다. 
+    // 파라미터에 데이터를 넣어준다. ( 대소문자를 구분한다. )
+    var arr = [ 'a', 'b', 'c', 'd' ];
+    console.log(arr.indexOf('c')); // 2
+
+    //2. toString : 배열뿐만 아니라 number 타입도 문자열화 시켜준다. 
+    var arr2 = [ 1, '2', [ 1, 2, 3 ], { name : 'lee' } ];
+    console.log(arr2.toString()); // "1,2,1,2,3,[object Object]"
+
+    //3. push : 배열의 마지막에 새로운 원소를 추가한다.
+    //          반환값은 변경된 배열의 길이를 반환 ( push()의 인자로 넣어준 원소 포함 ) 
+    var arr3 = new Array( 'a', 'b', 'c', 'd' );
+    arr3.push('e');
+    console.log(arr3); // [ 'a', 'b', 'c', 'd', 'e' ];
+    console.log(arr3.push('e')); // 5
+
+    //4. shift : 배열의 첫 번째 원소 하나를 제거한다. 
+    //         제거한 데이터는 해당 원소 타입으로 반환 원본 배열은 제거된 원소를 제외한 나머지가 된다. 넣어줄 인자 x
+    var arr4 = [ 'a', 'b', 'c', 'd' ];
+    arr4.shift();
+    console.log(arr4.shift()); // 'b'
+    console.log(arr4); // [ 'c', 'd' ];
+
+    //5. unshift : 열의 첫 번째에 새로운 원소를 추가한다. 
+    //             반환값은 변경된 배열의 길이를 반환 ( unshift()의 인자로 넣어준 원소 포함 )   
+    var arr5 = new Array( 'a', 'b', 'c', 'd' );
+    arr5.unshift('b1');
+    console.log(arr5.unshift('a0')); // 6
+    console.log(arr5); // [ 'a0', 'b1', 'a', 'b', 'c', 'd' ];
+
+    //6. sort : 본적으로 배열의 원소를 오름차순으로 정렬해준다
+    var arr = [ 'f', 4, '라', 2, 'c', '나', [ 1, 5, 3 ] ];
+    console.log(arr.sort()); // [ [ 1, 5, 3 ],  2, 4, 'c', 'f', '나', '라' ]; 
+
+    //7. reverse : 배열의 순서를 뒤집는다. 원본 배열도 순서가 뒤집힌다.
+    var arr7 = [ 'a', 'b', 'c', 'd' ];
+    console.log(arr7.reverse()); // [ 'd', 'c', 'b', 'a' ]
 
 }
+
+function TestObject() {
+    let obj = {
+        name : '홍길동',
+        age : 21
+      }; // 선언과 동시에 할당
+      obj.name = '홍길동';
+      obj.age = 21;
+      console.log(obj);
+
+      let obj2 = new Object();     // ()안에는 값을 넣는다.  그럼 해당 데이터 타입의 객체가 생성된다
+      obj2['name'] = '홍길동';
+      obj2['age'] = 21;                 
+      console.log(obj2);
+
+      let obj3 = {};
+      obj3.name = '홍길동';
+      obj3.age = 21;
+      console.log(obj3);
+
+      let obj4 = new Object({ name: '홍길동', age: 21});
+      console.log(obj4);
+
+
+      // String 객체가 생성 됨
+      let obj5 = new Object('홍길동');
+      console.log(obj5);
+      //String {'홍길동'}
+      //index 0 = '홍', index 1 = '길' index 2 = '동' // 이런경우는 String 객체가 생성되고
+
+    }
+
+
 
 
 // 실행부분
@@ -159,8 +260,24 @@ function TestArray8() {
 //TestArray4();
 //TestArray5();
 //TestArray6();
-TestArray8();
+//TestArray7();
+//TestArray8();
+//TestArray9();
+//TestArray10();
+TestObject();
 
+module.exports = {
+    TestArray1,
+    TestArray2,
+    TestArray3,
+    TestArray4,
+    TestArray5,
+    TestArray6,
+    TestArray7,
+    TestArray8,
+    TestArray9,
+    TestObject,
+};
 
 
 
