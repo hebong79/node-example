@@ -221,6 +221,22 @@ function TestArray10() {
 
 }
 
+function TestArray11() {
+
+    // splice : 배열의 기존 원소를 삭제 또는 교체하거나 새 원소를 추가하여 배열의 내용을 변경한다
+    //          start: 시작인덱스
+    //          delCunt : 삭제할 갯수 
+    //          뒤쪽은 추가할 항목
+    var arr = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+    console.log(arr.splice(1,3)); // [ 'b', 'c' 'd' ]
+    console.log(arr) // [ 'a', 'e', 'f' ]
+    console.log(arr.splice(1,3,'가','나')); // [ 'e', 'f' ]
+    console.log(arr) // [ 'a', '가', '나' ]
+    var arr1 = [ '가', '나', '다', '라' ];
+    console.log(arr1.splice(1,0,'마','바')); // []
+    console.log(arr1); // [ '가', '마', '바', '나', '다', '라' ];
+}
+
 function TestObject() {
     let obj = {
         name : '홍길동',
@@ -264,7 +280,8 @@ function TestObject() {
 //TestArray8();
 //TestArray9();
 //TestArray10();
-TestObject();
+TestArray11();
+//TestObject();
 
 module.exports = {
     TestArray1,
