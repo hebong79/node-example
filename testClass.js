@@ -91,7 +91,9 @@ TestClass2();
 
 module.exports = {
     Person,
+    Animal,
     Rectangle,
     TestClass1,
     TestClass2,
+    TestClass3,
 };
